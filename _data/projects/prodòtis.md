@@ -1,6 +1,8 @@
 ---
 title: PRODÒTIS
-cat: scripte
+cat:
+  - scripte
+  - hmc
 year: "2025"
 desc: >-
   Deux policiers procèdent à la reconstitution d’un meurtre. L’un joue la
