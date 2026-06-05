@@ -15,19 +15,25 @@ collections:
         fields:
           - { label: Prenom, name: name, widget: string }
           - { label: Nom italique, name: subtitle, widget: string }
-          - { label: Description accueil, name: desc, widget: text }
           - { label: Email, name: email, widget: string }
           - { label: URL LinkedIn, name: linkedin, widget: string, required: false }
           - { label: URL Instagram, name: instagram, widget: string, required: false }
-          - { label: A propos paragraphe 1, name: about1, widget: text }
-          - { label: A propos paragraphe 2, name: about2, widget: text }
-          - { label: Contact sous-titre, name: contactHeading, widget: string }
-          - { label: Contact texte, name: contactDesc, widget: text }
-          - { label: Footer, name: footer, widget: string }
           - { label: Photo hero, name: photo, widget: image, required: false }
           - { label: Logo nav, name: logo, widget: image, required: false }
           - { label: CV PDF, name: cvPdf, widget: file, required: false }
           - { label: Texte section CV, name: cvDesc, widget: text, required: false }
+          - { label: "FR — Description accueil", name: desc, widget: text }
+          - { label: "EN — Description accueil", name: desc_en, widget: text }
+          - { label: "FR — A propos paragraphe 1", name: about1, widget: text }
+          - { label: "EN — A propos paragraphe 1", name: about1_en, widget: text }
+          - { label: "FR — A propos paragraphe 2", name: about2, widget: text }
+          - { label: "EN — A propos paragraphe 2", name: about2_en, widget: text }
+          - { label: "FR — Contact sous-titre", name: contactHeading, widget: string }
+          - { label: "EN — Contact sous-titre", name: contactHeading_en, widget: string }
+          - { label: "FR — Contact texte", name: contactDesc, widget: text }
+          - { label: "EN — Contact texte", name: contactDesc_en, widget: text }
+          - { label: "FR — Footer", name: footer, widget: string }
+          - { label: "EN — Footer", name: footer_en, widget: string, required: false }
 
   - name: projects
     label: Projets
@@ -48,8 +54,9 @@ collections:
           - { label: Mise en scene, value: mise-en-scene }
           - { label: Autres, value: autres }
       - { label: Annee, name: year, widget: string, required: false }
-      - { label: Description, name: desc, widget: text, required: false }
-      - { label: Image principale (vignette), name: img, widget: image, required: false }
+      - { label: "FR — Description", name: desc, widget: text, required: false }
+      - { label: "EN — Description", name: desc_en, widget: text, required: false }
+      - { label: Image principale, name: img, widget: image, required: false }
       - label: Galerie photos
         name: gallery
         widget: list
@@ -66,4 +73,5 @@ collections:
       - { label: Annee, name: year, widget: string }
       - { label: Intitule, name: role, widget: string }
       - { label: Lieu, name: place, widget: string, required: false }
-      - { label: Description, name: desc, widget: text, required: false }
+      - { label: "FR — Description", name: desc, widget: text, required: false }
+      - { label: "EN — Description", name: desc_en, widget: text, required: false }
