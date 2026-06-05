@@ -3,20 +3,36 @@ backend:
   branch: main
 
 media_folder: uploads
+public_folder: /uploads
 
 collections:
-  - name: config
-    label: Mon portfolio
+  - name: settings
+    label: Parametres du site
     files:
-      - name: settings
-        label: Textes & paramètres
+      - name: general
+        label: Textes & infos
         file: _data/settings.json
         fields:
-          - {label: Nom, name: name, widget: string}
-          - {label: Sous-titre, name: subtitle, widget: string}
-          - {label: Description accueil, name: desc, widget: text}
-          - {label: Email, name: email, widget: string}
-          - {label: LinkedIn URL, name: linkedin, widget: string, required: false}
-          - {label: Instagram URL, name: instagram, widget: string, required: false}
-          - {label: À propos paragraphe 1, name: about1, widget: text}
-          - {label: À propos paragraphe 2, name: about2, widget: text}
+          - { label: Prenom (hero + nav), name: name, widget: string, default: Eleanor }
+          - { label: Nom (italique sous le prenom), name: subtitle, widget: string, default: Corty-Capdeville }
+          - { label: Description accueil, name: desc, widget: text }
+          - { label: Email de contact, name: email, widget: string }
+          - { label: URL LinkedIn, name: linkedin, widget: string, required: false }
+          - { label: URL Instagram, name: instagram, widget: string, required: false }
+          - { label: "A propos - paragraphe 1", name: about1, widget: text }
+          - { label: "A propos - paragraphe 2", name: about2, widget: text }
+          - { label: Contact sous-titre italique, name: contactHeading, widget: string, default: "on collabore ?" }
+          - { label: Contact texte, name: contactDesc, widget: text }
+          - { label: Footer, name: footer, widget: string, default: "© 2026 Eleanor Corty-Capdeville" }
+          - { label: Photo hero (fond accueil), name: photo, widget: image, required: false }
+          - { label: Logo (nav), name: logo, widget: image, required: false }
+          - { label: CV PDF, name: cvPdf, widget: file, required: false, media_folder: uploads }
+          - { label: Texte section CV, name: cvDesc, widget: text, required: false }
+
+  - name: projects
+    label: Projets
+    folder: _data/projects
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary:
