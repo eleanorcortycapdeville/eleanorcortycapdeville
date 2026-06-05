@@ -19,6 +19,7 @@ collections:
           - { label: URL LinkedIn, name: linkedin, widget: string, required: false }
           - { label: URL Instagram, name: instagram, widget: string, required: false }
           - { label: Photo hero, name: photo, widget: image, required: false }
+          - { label: Photo contact (droite), name: contactPhoto, widget: image, required: false }
           - { label: Logo nav, name: logo, widget: image, required: false }
           - { label: CV PDF, name: cvPdf, widget: file, required: false }
           - { label: Texte section CV, name: cvDesc, widget: text, required: false }
@@ -42,12 +43,13 @@ collections:
     slug: "{{title}}"
     fields:
       - { label: Titre, name: title, widget: string }
-      - label: Categorie
+      - label: Categories (plusieurs possibles)
         name: cat
         widget: select
+        multiple: true
         options:
-          - { label: Deco, value: deco }
-          - { label: Access, value: access }
+          - { label: Decoration, value: deco }
+          - { label: Accessoiriste, value: access }
           - { label: HMC, value: hmc }
           - { label: Regie, value: regie }
           - { label: Scripte, value: scripte }
