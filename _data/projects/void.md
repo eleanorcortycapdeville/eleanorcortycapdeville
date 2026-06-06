@@ -2,5 +2,5 @@
 title: VOID
 cat:
   - deco
-year: 202§
+year: "2026"
 ---
