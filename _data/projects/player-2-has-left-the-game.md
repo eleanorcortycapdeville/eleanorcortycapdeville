@@ -5,6 +5,6 @@ year: "2025"
 img: /uploads/mainone.png
 gallery:
   - /uploads/second.png
-  - /uploads/third.jepg
+  - /uploads/third.jpeg
   - /uploads/fourth.png
 ---
