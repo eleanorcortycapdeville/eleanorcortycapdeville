@@ -1,6 +1,5 @@
 ---
-title: PUB
-cat:
-  - regie
+title: "PUB"
+cat: regie
 year: "2026"
 ---
