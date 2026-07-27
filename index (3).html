@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eleanor Corty-Capdeville</title>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#fff;--ink:#0d0d0d;--ink-soft:#5a5a5a;--ink-faint:#c0bdb8;--trust:#4a7c6f;--trust-light:#e8f0ee;--display:"Barlow Condensed",sans-serif;--sans:"Jost",sans-serif;--nav-h:96px}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:0.5px solid rgba(13,13,13,0.1);z-index:100;padding:1rem 3rem 0.85rem}
+.nav-top-row{position:relative;display:flex;align-items:center;justify-content:center;min-height:32px;margin-bottom:0.75rem}
+.nav-top-row .lang-switch{position:absolute;right:0;top:50%;transform:translateY(-50%)}
+.nav-social{position:absolute;left:1.25rem;top:32px;transform:translateY(-50%);display:flex;gap:0.9rem;align-items:center}
+.nav-social a{display:flex;color:var(--ink-soft);transition:color 0.2s}
+.nav-social a:hover{color:var(--ink)}
+.nav-links{display:flex;justify-content:center;flex-wrap:wrap;gap:1.5rem;list-style:none}
+.nav-links a{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.lang-switch{display:flex;gap:0.5rem;align-items:center}
+.lang-btn{background:none;border:none;cursor:pointer;opacity:0.35;transition:opacity 0.2s;padding:2px;display:flex;align-items:center}
+.lang-btn.active{opacity:1}
+#hero{min-height:100vh;padding-top:var(--nav-h);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-bottom:5rem;padding-left:3rem;padding-right:3rem}
+.hero-content{position:relative;z-index:2;max-width:620px}
+.hero-name-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:0.3em;margin-bottom:1.8rem}
+.hero-name{font-family:var(--display);font-size:clamp(28px,3.8vw,50px);font-weight:900;line-height:0.9;letter-spacing:-0.005em;text-transform:uppercase;color:var(--ink)}
+.hero-desc{max-width:560px;font-size:14px;color:var(--ink-soft);line-height:1.9;margin-bottom:1.8rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.tag{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;border:0.5px solid rgba(13,13,13,0.25);padding:5px 13px;color:var(--ink-soft);cursor:pointer;font-family:var(--sans);transition:all 0.2s}
+.tag:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.section-divider{height:0.5px;background:rgba(13,13,13,0.12);margin:0 3rem}
+#work{padding:5rem 6rem 4rem}
+.work-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:3rem}
+.work-title{font-family:var(--display);font-size:clamp(56px,8vw,110px);font-weight:900;text-transform:uppercase;line-height:0.9;letter-spacing:-0.01em}
+.work-title em{display:block;font-style:italic;font-weight:300;font-size:0.45em;color:var(--ink-soft);letter-spacing:0.04em;text-transform:none;margin-top:0.2em}
+.cat-filters{display:flex;flex-wrap:wrap;gap:0.4rem}
+.cat-btn{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;border:0.5px solid transparent;background:none;color:var(--ink-soft);cursor:pointer;transition:all 0.2s;font-family:var(--sans);font-weight:300}
+.cat-btn:hover{border-color:var(--ink);color:var(--ink)}
+.cat-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.project-card{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:3/2;background:rgba(13,13,13,0.04)}
+.project-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s}
+.project-card:hover img{transform:scale(1.04)}
+.project-card-info{position:absolute;bottom:0;left:0;right:0;padding:1.5rem 1.25rem 1rem;background:linear-gradient(transparent,rgba(13,13,13,0.75));opacity:0;transform:translateY(4px);transition:opacity 0.25s,transform 0.25s}
+.project-card:hover .project-card-info{opacity:1;transform:translateY(0)}
+.project-card-cat{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:4px}
+.project-card-title{font-family:var(--display);font-size:26px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:0.03em;line-height:1.1}
+.project-card-placeholder{width:100%;height:100%;background:rgba(13,13,13,0.04);display:flex;align-items:center;justify-content:center;color:var(--ink-faint);font-size:11px;letter-spacing:0.1em;text-transform:uppercase}
+.no-projects{grid-column:1/-1;text-align:center;padding:4rem;color:var(--ink-faint);font-size:13px}
+.modal-overlay{position:fixed;inset:0;background:rgba(13,13,13,0.9);z-index:200;display:none;align-items:center;justify-content:center;padding:2rem}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;max-width:820px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+.modal-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.modal-img-placeholder{width:100%;aspect-ratio:16/9;background:rgba(13,13,13,0.05);display:flex;align-items:center;justify-content:center;color:var(--ink-faint);font-size:13px}
+.modal-body{padding:2rem 2.5rem 2.5rem}
+.modal-cat{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--trust);margin-bottom:0.4rem}
+.modal-title{font-family:var(--display);font-size:52px;font-weight:900;text-transform:uppercase;line-height:1;margin-bottom:0.4rem}
+.modal-year{font-size:12px;color:var(--ink-faint);letter-spacing:0.08em;margin-bottom:1.5rem}
+.modal-desc{font-size:14px;color:var(--ink-soft);line-height:1.9;white-space:pre-wrap}
+.modal-gallery{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.25rem}
+.modal-gallery img{width:calc(33.33% - 4px);aspect-ratio:3/2;object-fit:cover;cursor:pointer;transition:opacity 0.2s}
+.modal-gallery img:hover{opacity:0.85}
+.modal-yt{display:inline-flex;align-items:center;gap:8px;margin-top:1.25rem;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#fff;background:#FF0000;padding:9px 16px;text-decoration:none;transition:opacity 0.2s}
+.modal-yt:hover{opacity:0.85}
+.modal-close{position:absolute;top:1rem;right:1rem;width:36px;height:36px;background:#fff;border:0.5px solid rgba(13,13,13,0.2);cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background 0.2s}
+.modal-close:hover{background:var(--ink);color:#fff}
+#about{padding:5rem 3rem;background:#fff;border-top:0.5px solid rgba(13,13,13,0.12)}
+.about-heading{font-family:var(--display);font-size:clamp(52px,7vw,100px);font-weight:900;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.88;margin-bottom:2rem}
+.about-heading em{display:block;font-style:italic;font-weight:300;color:var(--trust);font-size:0.55em;text-transform:none;letter-spacing:0.04em;margin-top:0.2em}
+.about-content{max-width:640px;margin:0 auto}
+.about-p{font-size:14px;color:var(--ink-soft);line-height:1.9;margin-bottom:1rem}
+#formation{padding:5rem 3rem;border-top:0.5px solid rgba(13,13,13,0.12);overflow:visible}
+.formation-title{font-family:var(--display);font-size:clamp(56px,8vw,110px);font-weight:900;text-transform:uppercase;line-height:0.9;letter-spacing:-0.01em;margin-bottom:4rem}
+.formation-title em{display:block;font-style:italic;font-weight:300;font-size:0.45em;color:var(--ink-soft);letter-spacing:0.04em;text-transform:none;margin-top:0.2em}
+.timeline{position:relative;padding-left:2rem;overflow:visible}
+.timeline::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(13,13,13,0.15)}
+.timeline-item{position:relative;padding:0 0 3rem 2rem}
+.timeline-item::before{content:"";position:absolute;left:-5px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.timeline-year{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--trust);margin-bottom:0.4rem}
+.timeline-role{font-family:var(--display);font-size:28px;font-weight:700;text-transform:uppercase;letter-spacing:0.02em;line-height:1;margin-bottom:0.3rem}
+.timeline-place{font-size:13px;color:var(--ink-soft);margin-bottom:0.5rem}
+.timeline-desc{font-size:14px;color:var(--ink-soft);line-height:1.9;max-width:700px}
+.timeline-empty{font-size:13px;color:var(--ink-faint);padding:2rem 0}
+#cv{padding:5rem 3rem;background:#fff;border-top:0.5px solid rgba(13,13,13,0.12)}
+.cv-title{font-family:var(--display);font-size:clamp(56px,8vw,110px);font-weight:900;text-transform:uppercase;line-height:0.9;letter-spacing:-0.01em;margin-bottom:1.5rem}
+.cv-title em{display:block;font-style:italic;font-weight:300;font-size:0.45em;color:var(--ink-soft);letter-spacing:0.04em;text-transform:none;margin-top:0.2em}
+.cv-desc{font-size:14px;color:var(--ink-soft);line-height:1.8;margin:0 auto 2.5rem;max-width:600px}
+.cv-download{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#fff;background:var(--ink);padding:14px 2.5rem;text-decoration:none;transition:opacity 0.2s}
+.cv-download:hover{opacity:0.8}
+#contact{padding:5rem 3rem;position:relative;overflow:hidden}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.contact-heading{font-family:var(--display);font-size:clamp(64px,10vw,130px);font-weight:900;text-transform:uppercase;letter-spacing:-0.01em;line-height:0.88;margin-bottom:1.5rem}
+.contact-heading em{display:block;font-style:italic;font-weight:300;color:var(--ink-soft);font-size:0.45em;text-transform:none;letter-spacing:0.05em;margin-top:0.2em}
+.contact-sub{font-size:14px;color:var(--ink-soft);line-height:1.8;margin-bottom:2.5rem}
+.contact-email{font-family:var(--display);font-size:30px;font-weight:400;letter-spacing:0.04em;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--ink);padding-bottom:2px;transition:color 0.2s,border-color 0.2s}
+.contact-email:hover{color:var(--trust);border-color:var(--trust)}
+.social-links{display:flex;gap:0.8rem;margin-top:2rem;flex-wrap:wrap}
+.social-links a{display:inline-flex;align-items:center;gap:7px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;border:0.5px solid rgba(13,13,13,0.2);padding:8px 14px;transition:all 0.2s}
+.social-links a:hover{border-color:var(--ink);color:var(--ink)}
+.contact-photo-wrap{width:100%;max-width:380px;aspect-ratio:3/4;background:rgba(13,13,13,0.05);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.contact-photo-wrap img{width:100%;height:100%;object-fit:cover;display:none}
+footer{padding:1.5rem 3rem;border-top:0.5px solid rgba(13,13,13,0.12);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer p{font-size:11px;color:var(--ink-faint);letter-spacing:0.08em}
+.footer-social{display:flex;gap:1.2rem;align-items:center}
+.footer-social a{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--ink-faint);text-decoration:none;transition:color 0.2s}
+.footer-social a:hover{color:var(--ink)}
+#floating-logo{display:none;align-items:center}
+#floating-logo img{height:26px;width:auto;display:block;object-fit:contain}
+
+
+/* ADMIN */
+#gh-admin{display:none;position:fixed;inset:0;background:rgba(13,13,13,0.92);z-index:400;overflow-y:auto;padding:3rem 2rem}
+#gh-admin.open{display:block}
+.gha-inner{background:#fff;max-width:720px;margin:0 auto;padding:2.5rem}
+.gha-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.25rem}
+.gha-title{font-family:var(--display);font-size:36px;font-weight:900;text-transform:uppercase;letter-spacing:0.04em}
+.gha-sub{font-size:12px;color:var(--ink-faint);margin-bottom:2rem}
+.gha-close{background:none;border:none;font-size:24px;cursor:pointer;color:var(--ink-soft)}
+.gha-tabs{display:flex;flex-wrap:wrap;border-bottom:0.5px solid rgba(13,13,13,0.15);margin-bottom:2rem}
+.gha-tab{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1rem;cursor:pointer;border:none;background:none;color:var(--ink-soft);font-family:var(--sans);font-weight:300;border-bottom:2px solid transparent;margin-bottom:-0.5px;transition:color 0.2s,border-color 0.2s}
+.gha-tab.active{color:var(--ink);border-bottom-color:var(--ink)}
+.gha-section{display:none}
+.gha-section.active{display:block}
+.gha-status{font-size:12px;padding:8px 12px;margin-top:0.75rem;display:none}
+.gha-status.ok{background:#e8f5e9;color:#2e7d4f}
+.gha-status.err{background:#fdecea;color:#c0392b}
+.gha-list{list-style:none;margin-top:1rem}
+.gha-list-item{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:0.5px solid rgba(13,13,13,0.1);font-size:13px}
+.field{margin-bottom:1.25rem}
+.field label{display:block;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;border:0.5px solid rgba(13,13,13,0.22);background:transparent;padding:10px 12px;font-family:var(--sans);font-weight:300;font-size:14px;color:var(--ink);outline:none;transition:border-color 0.2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink)}
+.field textarea{min-height:90px;resize:vertical}
+.field select{appearance:none;cursor:pointer}
+.field-hint{font-size:11px;color:var(--ink-faint);margin-top:4px}
+.btn-primary{background:var(--ink);color:#fff;border:none;padding:12px 2rem;font-family:var(--sans);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:opacity 0.2s;font-weight:300}
+.btn-primary:hover{opacity:0.8}
+.btn-secondary{background:transparent;color:var(--ink-soft);border:0.5px solid rgba(13,13,13,0.25);padding:6px 12px;font-family:var(--sans);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;font-weight:300}
+.btn-secondary:hover{border-color:var(--ink);color:var(--ink)}
+.btn-delete{background:none;border:none;color:var(--ink-faint);cursor:pointer;font-size:20px;padding:2px 8px;transition:color 0.2s}
+.btn-delete:hover{color:#c0392b}
+.admin-img-preview{max-height:80px;margin-top:6px;object-fit:cover;display:none}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.7s,transform 0.7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:768px){nav{padding:1rem 1.5rem 0.85rem}#work,#about,#formation,#cv,#contact{padding:4rem 1.5rem}.contact-grid{grid-template-columns:1fr;gap:2.5rem}.projects-grid{grid-template-columns:1fr}footer{flex-direction:column;gap:0.5rem;text-align:center}.section-divider{margin:0 1.5rem}}
+
+body{text-align:center}
+.hero-content{margin:0 auto;text-align:center}
+.hero-tags{justify-content:center}
+.work-header{text-align:center;flex-direction:column;align-items:center}
+.cat-filters{justify-content:center}
+.formation-title{text-align:center}
+.timeline{text-align:left}
+.contact-grid{text-align:center}
+.social-links{justify-content:center}
+.footer-social{justify-content:center}
+footer{justify-content:center;flex-direction:column;gap:0.5rem}
+.modal-body{text-align:left}
+</style>
+</head>
+<body>
+<script>
+if(window.netlifyIdentity){window.netlifyIdentity.on("init",function(user){if(!user){window.netlifyIdentity.on("login",function(){document.location.href="/admin/";});}});}
+</script>
+
+<nav>
+  <div class="nav-social" id="nav-social-links"></div>
+  <div class="nav-top-row">
+    <a href="#hero" id="floating-logo"><img id="floating-logo-img" alt="Logo"></a>
+    <div class="lang-switch">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')" title="Francais"><svg width="22" height="15" viewBox="0 0 22 15"><rect width="7.33" height="15" fill="#002395"/><rect x="7.33" width="7.33" height="15" fill="#fff"/><rect x="14.67" width="7.33" height="15" fill="#ED2939"/></svg></button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')" title="English"><svg width="22" height="15" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/><path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="5"/><path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/><path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="8"/></svg></button>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#work" data-fr="Projets" data-en="Projects">Projets</a></li>
+    <li><a href="#about" data-fr="A propos" data-en="About">A propos</a></li>
+    <li><a href="#formation" data-fr="Formation" data-en="Education">Formation</a></li>
+    <li><a href="#cv" data-fr="CV" data-en="CV">CV</a></li>
+    <li><a href="#contact" data-fr="Contact" data-en="Contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-name-row">
+      <h1 class="hero-name" id="hero-name-display">ELEANOR</h1>
+      <h1 class="hero-name" id="hero-subtitle">CORTY-CAPDEVILLE</h1>
+    </div>
+    <p class="hero-desc" id="hero-desc" data-fr="Etudiante en cinema a l ESEC Lyon, ouverte aux collaborations dans les domaines suivants :" data-en="Film student at ESEC Lyon, open to collaborations in the following fields:">Etudiante en cinema a l ESEC Lyon, ouverte aux collaborations dans les domaines suivants :</p>
+    <div class="hero-tags">
+      <span class="tag" onclick="scrollToWork('deco')" data-fr="Decoration" data-en="Set Design">Decoration</span>
+      <span class="tag" onclick="scrollToWork('access')" data-fr="Accessoiriste" data-en="Props">Accessoiriste</span>
+      <span class="tag" onclick="scrollToWork('hmc')" data-fr="HMC" data-en="HMC">HMC</span>
+      <span class="tag" onclick="scrollToWork('regie')" data-fr="Regie" data-en="Regie">Regie</span>
+      <span class="tag" onclick="scrollToWork('scripte')" data-fr="Scripte" data-en="Script Supervisor">Scripte</span>
+      <span class="tag" onclick="scrollToWork('mise-en-scene')" data-fr="Assistant realisateur" data-en="Assistant Director">Assistant realisateur</span>
+      <span class="tag" onclick="scrollToWork('autres')" data-fr="Autres" data-en="Other">Autres</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section id="work">
+  <div class="work-header reveal">
+    <h2 class="work-title">Projets<em id="work-sub">mes travaux</em></h2>
+    <div class="cat-filters">
+      <button class="cat-btn active" data-cat="all" data-fr="Tout" data-en="All" onclick="filterCat('all',this)">Tout</button>
+      <button class="cat-btn" data-cat="deco" data-fr="Decoration" data-en="Set Design" onclick="filterCat('deco',this)">Decoration</button>
+      <button class="cat-btn" data-cat="access" data-fr="Accessoiriste" data-en="Props" onclick="filterCat('access',this)">Accessoiriste</button>
+      <button class="cat-btn" data-cat="hmc" data-fr="HMC" data-en="HMC" onclick="filterCat('hmc',this)">HMC</button>
+      <button class="cat-btn" data-cat="regie" data-fr="Regie" data-en="Regie" onclick="filterCat('regie',this)">Regie</button>
+      <button class="cat-btn" data-cat="scripte" data-fr="Scripte" data-en="Script" onclick="filterCat('scripte',this)">Scripte</button>
+      <button class="cat-btn" data-cat="mise-en-scene" data-fr="Assistant realisateur" data-en="Assistant Director" onclick="filterCat('mise-en-scene',this)">Assistant realisateur</button>
+      <button class="cat-btn" data-cat="autres" data-fr="Autres" data-en="Other" onclick="filterCat('autres',this)">Autres</button>
+    </div>
+  </div>
+  <div class="projects-grid reveal" id="projects-grid"></div>
+</section>
+
+<section id="about">
+  <h2 class="about-heading reveal">A propos<em id="about-sub">de moi</em></h2>
+  <div class="about-content reveal">
+    <p class="about-p" id="about-text-1" data-fr="" data-en=""></p>
+    <p class="about-p" id="about-text-2" data-fr="" data-en=""></p>
+  </div>
+</section>
+
+<section id="formation">
+  <h2 class="formation-title reveal" data-fr="Formation" data-en="Education">Formation<em>parcours</em></h2>
+  <div class="timeline reveal" id="timeline-list">
+    <p class="timeline-empty">Aucune entree pour l instant.</p>
+  </div>
+</section>
+
+<section id="cv">
+  <div class="reveal">
+    <h2 class="cv-title">Curriculum<em>vitae</em></h2>
+    <p class="cv-desc" id="cv-desc">Retrouvez mon parcours complet dans mon CV.</p>
+    <a class="cv-download" id="cv-download-btn" href="#" target="_blank" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Telecharger le CV
+    </a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <h2 class="contact-heading">Contact<em id="contact-sub">on collabore ?</em></h2>
+      <p class="contact-sub" id="contact-desc" data-fr="Disponible pour des stages, des collaborations et des tournages." data-en="Available for internships, collaborations and film shoots.">Disponible pour des stages, des collaborations et des tournages.</p>
+      <a class="contact-email" id="contact-email" href="mailto:ellie@email.com">ellie@email.com</a>
+      <div class="social-links" id="contact-social-links"></div>
+    </div>
+    <div class="reveal" style="display:flex;justify-content:center">
+      <div class="contact-photo-wrap" id="contact-photo-wrap">
+        <img id="contact-photo-img" src="" alt="">
+        <p style="font-size:11px;color:var(--ink-faint);letter-spacing:0.1em;text-transform:uppercase" id="contact-photo-placeholder">Photo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p id="footer-text">© 2026 Eleanor Corty-Capdeville</p>
+  <div class="footer-social" id="footer-social-links"></div>
+</footer>
+
+
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalBtn()">x</button>
+    <div id="modal-img-wrap"></div>
+    <div class="modal-body">
+      <p class="modal-cat" id="modal-cat"></p>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <p class="modal-year" id="modal-year"></p>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-gallery" id="modal-gallery" style="display:none"></div>
+      <a class="modal-yt" id="modal-yt-btn" href="#" target="_blank" rel="noopener" style="display:none"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg> Voir la video</a>
+    </div>
+  </div>
+</div>
+
+<!-- GITHUB ADMIN PANEL -->
+<div id="gh-admin">
+  <div class="gha-inner">
+    <div class="gha-header"><h2 class="gha-title">Admin</h2><button class="gha-close" onclick="closeGhAdmin()">x</button></div>
+    <p class="gha-sub">Modifications directement sur GitHub — visibles en 1-2 min</p>
+    <div id="gha-token-setup" style="display:none">
+      <div class="field"><label>Token GitHub</label><input type="password" id="gha-token-input" placeholder="ghp_..."></div>
+      <button class="btn-primary" onclick="saveGhToken()">Enregistrer</button>
+    </div>
+    <div id="gha-main" style="display:none">
+      <div class="gha-tabs">
+        <button class="gha-tab active" onclick="ghaTab('projects',this)">Projets</button>
+        <button class="gha-tab" onclick="ghaTab('settings',this)">Textes & infos</button>
+        <button class="gha-tab" onclick="ghaTab('formation',this)">Formation</button>
+        <button class="gha-tab" onclick="ghaTab('token',this)">Token</button>
+      </div>
+
+      <!-- PROJECTS TAB -->
+      <div class="gha-section active" id="gha-projects">
+        <div class="field"><label>Titre *</label><input type="text" id="gp-title"></div>
+        <div class="field"><label>Categories (plusieurs possibles)</label>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:4px">
+            <label style="font-size:12px;display:flex;align-items:center;gap:4px;text-transform:none;letter-spacing:0"><input type="checkbox" value="deco"> Decoration</label>
+            <label style="font-size:12px;display:flex;align-items:center;gap:4px;text-transform:none;letter-spacing:0"><input type="checkbox" value="access"> Accessoiriste</label>
+            <label style="font-size:12px;display:flex;align-items:center;gap:4px;text-transform:none;letter-spacing:0"><input type="checkbox" value="hmc"> HMC</label>
+            <label style="font-size:12px;display:flex;align-items:center;gap:4px;text-transform:none;letter-spacing:0"><input type="checkbox" value="regie"> Regie</label>
+            <label style="font-size:12px;display:flex;align-items:center;gap:4px;text-transform:none;letter-spacing:0"><input type="checkbox" value="scripte"> Scripte</label>
+            <label style="font-size:12px;display:flex;align-items:center;gap:4px;text-transform:none;letter-spacing:0"><input type="checkbox" value="mise-en-scene"> Assistant realisateur</label>
+            <label style="font-size:12px;display:flex;align-items:center;gap:4px;text-transform:none;letter-spacing:0"><input type="checkbox" value="autres"> Autres</label>
+          </div>
+        </div>
+        <div class="field"><label>Annee</label><input type="text" id="gp-year" placeholder="2025"></div>
+        <div class="field"><label>Date / Periode</label><input type="text" id="gp-date" placeholder="Ex : Mars 2025, Ete 2024..."></div>
+        <div class="field"><label>Role exact</label><input type="text" id="gp-role" placeholder="Ex : Renfort accessoiriste, Cheffe decoatrice..."></div>
+        <div class="field"><label>Description FR</label><textarea id="gp-desc"></textarea></div>
+        <div class="field"><label>Description EN</label><textarea id="gp-desc-en"></textarea></div>
+        <div class="field">
+          <label>Image principale</label>
+          <input type="file" id="gp-img-file" accept="image/*" style="font-size:12px">
+          <img id="gp-img-preview" class="admin-img-preview">
+          <p class="field-hint">ou URL directe :</p>
+          <input type="text" id="gp-img" placeholder="/uploads/..." style="margin-top:4px">
+        </div>
+        <div class="field">
+          <label>Galerie photos (plusieurs a la fois)</label>
+          <input type="file" id="gp-gallery-file" accept="image/*" multiple style="font-size:12px">
+          <p class="field-hint">ou URLs (une par ligne) :</p>
+          <textarea id="gp-gallery" placeholder="/uploads/photo1.jpg"></textarea>
+        </div>
+        <div class="field"><label>Lien YouTube</label><input type="text" id="gp-yt" placeholder="https://youtube.com/..."></div>
+        <button class="btn-primary" onclick="ghSaveProject()">Publier le projet</button>
+        <div class="gha-status" id="gp-status"></div>
+        <hr style="border:none;border-top:0.5px solid rgba(13,13,13,0.12);margin:2rem 0">
+        <p style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1rem">Projets existants</p>
+        <ul class="gha-list" id="gha-project-list"><li style="font-size:12px;color:var(--ink-faint)">Chargement...</li></ul>
+      </div>
+
+      <!-- SETTINGS TAB -->
+      <div class="gha-section" id="gha-settings">
+        <div class="field"><label>Prenom</label><input type="text" id="gs-name" placeholder="Eleanor"></div>
+        <div class="field"><label>Nom italique</label><input type="text" id="gs-subtitle"></div>
+        <div class="field"><label>Email</label><input type="email" id="gs-email"></div>
+        <div class="field"><label>URL LinkedIn</label><input type="text" id="gs-linkedin"></div>
+        <div class="field"><label>URL Instagram</label><input type="text" id="gs-instagram"></div>
+        <div class="field"><label>Description accueil FR</label><textarea id="gs-desc"></textarea></div>
+        <div class="field"><label>Description accueil EN</label><textarea id="gs-desc-en"></textarea></div>
+        <div class="field"><label>A propos §1 FR</label><textarea id="gs-about1"></textarea></div>
+        <div class="field"><label>A propos §1 EN</label><textarea id="gs-about1-en"></textarea></div>
+        <div class="field"><label>A propos §2 FR</label><textarea id="gs-about2"></textarea></div>
+        <div class="field"><label>A propos §2 EN</label><textarea id="gs-about2-en"></textarea></div>
+        <div class="field"><label>Contact sous-titre FR</label><input type="text" id="gs-contact-heading"></div>
+        <div class="field"><label>Contact sous-titre EN</label><input type="text" id="gs-contact-heading-en"></div>
+        <div class="field"><label>Contact texte FR</label><textarea id="gs-contact-desc"></textarea></div>
+        <div class="field"><label>Contact texte EN</label><textarea id="gs-contact-desc-en"></textarea></div>
+        <div class="field"><label>Footer</label><input type="text" id="gs-footer"></div>
+        <hr style="border:none;border-top:0.5px solid rgba(13,13,13,0.12);margin:1.5rem 0">
+        <div class="field">
+          <label>Photo contact (droite)</label>
+          <img id="gs-contact-preview" class="admin-img-preview">
+          <input type="file" id="gs-contact-file" accept="image/*" onchange="previewImg(this,'gs-contact-preview')" style="font-size:12px">
+        </div>
+        <div class="field">
+          <label>Logo (barre du haut)</label>
+          <img id="gs-float-preview" class="admin-img-preview" style="max-height:60px;object-fit:contain">
+          <input type="file" id="gs-float-file" accept="image/*" onchange="previewImg(this,'gs-float-preview')" style="font-size:12px">
+        </div>
+        <div class="field">
+          <label>CV (PDF)</label>
+          <p id="gs-cv-status" style="font-size:12px;color:var(--trust);display:none;margin-bottom:6px">CV uploade</p>
+          <input type="file" id="gs-cv-file" accept="application/pdf" style="font-size:12px">
+        </div>
+        <button class="btn-primary" id="gs-save-btn" onclick="ghSaveSettings()" disabled>Chargement...</button>
+        <div class="gha-status" id="gs-status"></div>
+      </div>
+
+      <!-- FORMATION TAB -->
+      <div class="gha-section" id="gha-formation">
+        <div class="field"><label>Annee / Periode *</label><input type="text" id="gf-year" placeholder="2023-2025"></div>
+        <div class="field"><label>Intitule *</label><input type="text" id="gf-role" placeholder="Assistante decoration"></div>
+        <div class="field"><label>Lieu</label><input type="text" id="gf-place"></div>
+        <div class="field"><label>Description FR</label><textarea id="gf-desc"></textarea></div>
+        <div class="field"><label>Description EN</label><textarea id="gf-desc-en"></textarea></div>
+        <button class="btn-primary" onclick="ghSaveFormation()">Publier</button>
+        <div class="gha-status" id="gf-status"></div>
+        <hr style="border:none;border-top:0.5px solid rgba(13,13,13,0.12);margin:2rem 0">
+        <ul class="gha-list" id="gha-formation-list"><li style="font-size:12px;color:var(--ink-faint)">Chargement...</li></ul>
+      </div>
+
+      <!-- TOKEN TAB -->
+      <div class="gha-section" id="gha-token">
+        <p style="font-size:13px;color:var(--ink-soft);margin-bottom:1rem">Changer le token :</p>
+        <div class="field"><input type="password" id="gha-new-token" placeholder="ghp_..."></div>
+        <button class="btn-primary" onclick="saveGhToken()">Mettre a jour</button>
+        <p style="font-size:11px;color:var(--ink-faint);margin-top:1rem">Token sauvegarde dans ce navigateur uniquement.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var CATS={deco:"Decoration",access:"Accessoiriste",hmc:"HMC",regie:"Regie",scripte:"Scripte","mise-en-scene":"Assistant realisateur",autres:"Autres"};
+var GH_REPO="eleanorcortycapdeville/eleanorcortycapdeville";
+var GH_BRANCH="main";
+var projects=[];
+var formations=[];
+var profile={};
+var currentFilter="all";
+var currentLang=localStorage.getItem("pf_lang")||"fr";
+
+// ── FRONTMATTER PARSER ──
+window.parseFrontmatter=function(text){
+  var match=text.match(/^---[\r\n]([\s\S]*?)[\r\n]---/);
+  if(!match)return{};
+  var obj={};
+  var lines=match[1].split(/\r?\n/);
+  var currentKey=null,inList=false,inMultiline=false,inQuoted=false;
+  var multilineVal=[],listItems=[];
+  function flush(){
+    if(!currentKey)return;
+    if(inList)obj[currentKey]=listItems.slice();
+    else if(inMultiline||inQuoted)obj[currentKey]=multilineVal.join(" ").replace(/\s+/g," ").trim();
+    currentKey=null;listItems=[];multilineVal=[];inList=inMultiline=inQuoted=false;
+  }
+  lines.forEach(function(line){
+    if(currentKey&&inQuoted){
+      var t=line.trim();if(!t)return;
+      if(t.endsWith('"')||t.endsWith("'")){multilineVal.push(t.replace(/["']$/,""));flush();}
+      else multilineVal.push(t);
+      return;
+    }
+    var kv=line.match(/^([a-zA-Z_]\w*):\s*(.*)$/);
+    if(kv){
+      flush();currentKey=kv[1];var val=kv[2].trim();
+      if(val===">-"||val===">"||val==="|"||val==="|-")inMultiline=true;
+      else if(val==="")inList=true;
+      else if((val.startsWith('"')||val.startsWith("'"))&&!(val.endsWith('"')&&val.length>1)&&!(val.endsWith("'")&&val.length>1)){inQuoted=true;multilineVal.push(val.slice(1));}
+      else{obj[currentKey]=val.replace(/^["']|["']$/g,"");currentKey=null;}
+    } else if(currentKey&&inMultiline){var t=line.trim();if(t)multilineVal.push(t);}
+    else if(currentKey&&inList&&line.match(/^\s*-\s+(.+)/)){listItems.push(line.match(/^\s*-\s+(.+)/)[1].trim().replace(/^["']|["']$/g,""));}
+  });
+  flush();return obj;
+};
+
+// ── IMAGE FUNCTIONS (global) ──
+function compressImage(file,maxWidth,quality){
+  return new Promise(function(resolve){
+    var img=new Image();
+    var url=URL.createObjectURL(file);
+    img.onload=function(){
+      URL.revokeObjectURL(url);
+      var canvas=document.createElement("canvas");
+      var w=img.width,h=img.height;
+      if(w>maxWidth){h=Math.round(h*maxWidth/w);w=maxWidth;}
+      canvas.width=w;canvas.height=h;
+      canvas.getContext("2d").drawImage(img,0,0,w,h);
+      canvas.toBlob(function(blob){resolve(blob);},"image/jpeg",quality||0.8);
+    };
+    img.src=url;
+  });
+}
+
+function uploadImageToGh(file,folder){
+  return new Promise(function(resolve,reject){
+    compressImage(file,1200,0.82).then(function(blob){
+      var r=new FileReader();
+      r.onload=function(e){
+        var base64=e.target.result.split(",")[1];
+        var filename=folder+"/"+Date.now()+".jpg";
+        // New file with timestamp name - no SHA needed
+        var body={message:"Upload "+filename,content:base64,branch:GH_BRANCH};
+        ghFetch("/contents/"+filename,"PUT",body).then(function(r){
+          if(r.content)resolve("/"+filename);
+          else if(r.sha){
+            // File exists, retry with SHA
+            body.sha=r.sha;
+            return ghFetch("/contents/"+filename,"PUT",body).then(function(r2){
+              if(r2.content)resolve("/"+filename);
+              else reject(r2.message||JSON.stringify(r2));
+            });
+          }
+          else reject(r.message||JSON.stringify(r));
+        }).catch(reject);
+      };
+      r.readAsDataURL(blob);
+    }).catch(reject);
+  });
+}
+
+function previewImg(input,previewId){
+  var file=input.files[0];if(!file)return;
+  var r=new FileReader();
+  r.onload=function(e){var el=document.getElementById(previewId);el.src=e.target.result;el.style.display="block";};
+  r.readAsDataURL(file);
+}
+
+function slugify(str){return str.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");}
+
+// ── GITHUB API ──
+function getToken(){return localStorage.getItem("gh_token")||"";}
+function ghFetch(path,method,body){
+  var opts={method:method||"GET",headers:{"Authorization":"token "+getToken(),"Accept":"application/vnd.github.v3+json","Content-Type":"application/json"}};
+  if(body)opts.body=JSON.stringify(body);
+  return fetch("https://api.github.com/repos/"+GH_REPO+path,opts).then(function(r){return r.json();});
+}
+function ghGetFileSha(path){
+  return ghFetch("/contents/"+path+"?ref="+GH_BRANCH+"&t="+Date.now()).then(function(r){return r.sha||null;}).catch(function(){return null;});
+}
+function ghPutFile(path,content,sha){
+  var encoded=btoa(unescape(encodeURIComponent(content)));
+  // Always get fresh SHA to avoid 409 conflicts
+  return ghGetFileSha(path).then(function(freshSha){
+    var body={message:"Update "+path,content:encoded,branch:GH_BRANCH};
+    if(freshSha)body.sha=freshSha;
+    return ghFetch("/contents/"+path,"PUT",body);
+  });
+}
+function ghStatus(id,ok,msg){
+  var el=document.getElementById(id);
+  el.className="gha-status "+(ok?"ok":"err");
+  el.textContent=msg;el.style.display="block";
+  if(ok)setTimeout(function(){el.style.display="none";},3000);
+}
+
+// ── GITHUB ADMIN UI ──
+function openGhAdmin(){
+  document.getElementById("gh-admin").classList.add("open");
+  document.body.style.overflow="hidden";
+  if(!getToken()){
+    document.getElementById("gha-token-setup").style.display="block";
+    document.getElementById("gha-main").style.display="none";
+  } else {
+    document.getElementById("gha-token-setup").style.display="none";
+    document.getElementById("gha-main").style.display="block";
+    ghLoadProjects();ghLoadFormations();ghLoadSettings();
+  }
+}
+function closeGhAdmin(){document.getElementById("gh-admin").classList.remove("open");document.body.style.overflow="";}
+function saveGhToken(){
+  var t=(document.getElementById("gha-token-input")||document.getElementById("gha-new-token")).value.trim();
+  if(!t){alert("Token vide");return;}
+  localStorage.setItem("gh_token",t);
+  document.getElementById("gha-token-setup").style.display="none";
+  document.getElementById("gha-main").style.display="block";
+  ghLoadProjects();ghLoadFormations();ghLoadSettings();
+}
+function ghaTab(tab,btn){
+  document.querySelectorAll(".gha-tab").forEach(function(b){b.classList.remove("active");});
+  document.querySelectorAll(".gha-section").forEach(function(s){s.classList.remove("active");});
+  btn.classList.add("active");document.getElementById("gha-"+tab).classList.add("active");
+}
+
+// ── PROJECTS ──
+function ghLoadProjects(){
+  ghFetch("/contents/_data/projects").then(function(files){
+    var list=document.getElementById("gha-project-list");
+    var mdFiles=(files||[]).filter(function(f){return f.name.endsWith(".md");});
+    window._ghProjectMap={};
+    window._ghProjectFilesList=mdFiles;
+    mdFiles.forEach(function(f){window._ghProjectMap[f.name]=f;});
+    if(!mdFiles.length){list.innerHTML="<li style='font-size:12px;color:var(--ink-faint)'>Aucun projet.</li>";return;}
+    list.innerHTML=mdFiles.map(function(f,idx){
+      var n=f.name.replace(".md","");
+      return "<li class='gha-list-item'><span>"+n+"</span><div style='display:flex;gap:8px'><button class='btn-secondary' onclick='ghEditProjectByIdx("+idx+")'>Modifier</button><button class='btn-delete' onclick='ghDeleteProjectByIdx("+idx+")'>x</button></div></li>";
+    }).join("");
+  }).catch(function(){});
+}
+
+function ghEditProject(path,sha){
+  var url="https://raw.githubusercontent.com/"+GH_REPO+"/main/"+path.split("/").map(encodeURIComponent).join("/")+"?t="+Date.now();
+  fetch(url).then(function(r){return r.ok?r.text():Promise.reject(r.status);})
+  .then(function(content){
+    var p=window.parseFrontmatter(content);
+    document.getElementById("gp-title").value=p.title||"";
+    document.getElementById("gp-year").value=p.year||"";
+    document.getElementById("gp-date").value=p.date||"";
+    document.getElementById("gp-role").value=p.role||"";
+    document.getElementById("gp-desc").value=p.desc||"";
+    document.getElementById("gp-desc-en").value=p.desc_en||"";
+    document.getElementById("gp-img").value=p.img||"";
+    document.getElementById("gp-gallery").value=Array.isArray(p.gallery)?p.gallery.join("\n"):(p.gallery||"");
+    document.getElementById("gp-yt").value=p.yt||"";
+    document.querySelectorAll("#gha-projects input[type=checkbox]").forEach(function(cb){cb.checked=false;});
+    var cats=Array.isArray(p.cat)?p.cat:(p.cat?[p.cat]:[]);
+    cats.forEach(function(c){var cb=document.querySelector("#gha-projects input[value='"+c+"']");if(cb)cb.checked=true;});
+    document.getElementById("gp-title").dataset.editPath=path;
+    document.getElementById("gp-title").dataset.editSha=sha;
+    ghStatus("gp-status",true,"Projet charge — modifie et clique Publier");
+  }).catch(function(e){alert("Erreur chargement: "+e);});
+}
+
+function ghDeleteProject(name){
+  var f=window._ghProjectMap&&window._ghProjectMap[name];
+  if(!f||!confirm("Supprimer "+name+" ?"))return;
+  ghFetch("/contents/"+f.path,"DELETE",{message:"Delete "+f.path,sha:f.sha,branch:GH_BRANCH})
+  .then(function(){ghStatus("gp-status",true,"Supprime");ghLoadProjects();loadGithubData();})
+  .catch(function(){ghStatus("gp-status",false,"Erreur");});
+}
+
+function buildProjectMd(){
+  var title=document.getElementById("gp-title").value.trim();
+  var cats=[];
+  document.querySelectorAll("#gha-projects input[type=checkbox]:checked").forEach(function(cb){cats.push(cb.value);});
+  var year=document.getElementById("gp-year").value.trim();
+  var date=document.getElementById("gp-date").value.trim();
+  var role=document.getElementById("gp-role").value.trim();
+  var desc=document.getElementById("gp-desc").value.trim();
+  var descEn=document.getElementById("gp-desc-en").value.trim();
+  var img=document.getElementById("gp-img").value.trim();
+  var galleryRaw=document.getElementById("gp-gallery").value.trim();
+  var gallery=galleryRaw?galleryRaw.split("\n").map(function(l){return l.trim();}).filter(Boolean):[];
+  var yt=document.getElementById("gp-yt").value.trim();
+  var md="---\ntitle: "+JSON.stringify(title)+"\n";
+  if(cats.length===1)md+="cat: "+cats[0]+"\n";
+  else if(cats.length>1)md+="cat:\n"+cats.map(function(c){return "  - "+c;}).join("\n")+"\n";
+  if(year)md+="year: "+JSON.stringify(year)+"\n";
+  if(date)md+="date: "+JSON.stringify(date)+"\n";
+  if(role)md+="role: "+JSON.stringify(role)+"\n";
+  if(desc)md+="desc: "+JSON.stringify(desc)+"\n";
+  if(descEn)md+="desc_en: "+JSON.stringify(descEn)+"\n";
+  if(img)md+="img: "+img+"\n";
+  if(gallery.length)md+="gallery:\n"+gallery.map(function(g){return "  - "+g;}).join("\n")+"\n";
+  if(yt)md+="yt: "+yt+"\n";
+  md+="---\n";
+  return md;
+}
+
+function ghSaveProject(){
+  var title=document.getElementById("gp-title").value.trim();
+  if(!title){alert("Titre obligatoire");return;}
+  var imgFile=document.getElementById("gp-img-file").files[0];
+  var galleryFiles=Array.from(document.getElementById("gp-gallery-file").files);
+  var tasks=[];
+  if(imgFile){
+    ghStatus("gp-status",true,"Upload image principale...");
+    tasks.push(uploadImageToGh(imgFile,"uploads").then(function(path){document.getElementById("gp-img").value=path;}));
+  }
+  if(galleryFiles.length){
+    ghStatus("gp-status",true,"Upload galerie ("+galleryFiles.length+" photos)...");
+    galleryFiles.forEach(function(file){
+      tasks.push(uploadImageToGh(file,"uploads").then(function(path){
+        var t=document.getElementById("gp-gallery");
+        t.value=t.value.trim()?(t.value.trim()+"\n"+path):path;
+      }));
+    });
+  }
+  Promise.all(tasks).then(function(){
+    var md=buildProjectMd();
+    var editPath=document.getElementById("gp-title").dataset.editPath;
+    var editSha=document.getElementById("gp-title").dataset.editSha||null;
+    var filename=editPath||"_data/projects/"+slugify(title)+".md";
+    ghStatus("gp-status",true,"Publication...");
+    ghPutFile(filename,md,null).then(function(r){
+      if(r.content){
+        ghStatus("gp-status",true,"Projet publie — visible dans 1-2 min");
+        ["gp-title","gp-year","gp-date","gp-role","gp-desc","gp-desc-en","gp-img","gp-gallery","gp-yt"].forEach(function(id){document.getElementById(id).value="";});
+        document.querySelectorAll("#gha-projects input[type=checkbox]").forEach(function(cb){cb.checked=false;});
+        document.getElementById("gp-img-preview").style.display="none";
+        delete document.getElementById("gp-title").dataset.editPath;
+        delete document.getElementById("gp-title").dataset.editSha;
+        ghLoadProjects();
+      } else ghStatus("gp-status",false,"Erreur: "+(r.message||JSON.stringify(r)));
+    }).catch(function(e){ghStatus("gp-status",false,"Erreur: "+e);});
+  }).catch(function(e){ghStatus("gp-status",false,"Erreur upload: "+e);});
+}
+
+// ── SETTINGS ──
+function ghLoadSettings(){
+  var btn=document.getElementById("gs-save-btn");
+  if(btn){btn.disabled=true;btn.textContent="Chargement...";}
+  fetch("https://raw.githubusercontent.com/"+GH_REPO+"/main/_data/settings.json?t="+Date.now())
+  .then(function(r){return r.ok?r.json():{};}).catch(function(){return{};})
+  .then(function(d){
+    var map={name:"gs-name",subtitle:"gs-subtitle",email:"gs-email",linkedin:"gs-linkedin",instagram:"gs-instagram",
+      desc:"gs-desc",desc_en:"gs-desc-en",about1:"gs-about1",about1_en:"gs-about1-en",
+      about2:"gs-about2",about2_en:"gs-about2-en",contactHeading:"gs-contact-heading",
+      contactHeading_en:"gs-contact-heading-en",contactDesc:"gs-contact-desc",contactDesc_en:"gs-contact-desc-en",footer:"gs-footer"};
+    Object.keys(map).forEach(function(k){var el=document.getElementById(map[k]);if(el&&d[k])el.value=d[k];});
+    if(d.cvPdf){document.getElementById("gs-cv-status").style.display="block";}
+  })
+  .finally(function(){
+    // Only allow saving once the current file has actually loaded into the form.
+    // Saving before this resolves used to silently blank out fields (e.g. the EN
+    // "A propos" texts) because ghSaveSettings() writes whatever is in the form
+    // right now, including still-empty fields.
+    if(btn){btn.disabled=false;btn.textContent="Publier les modifications";}
+  });
+}
+
+function ghSaveSettings(){
+  ghStatus("gs-status",true,"Sauvegarde...");
+  fetch("https://raw.githubusercontent.com/"+GH_REPO+"/main/_data/settings.json?t="+Date.now())
+  .then(function(r){return r.ok?r.json():{};}).catch(function(){return{};})
+  .then(function(existing){
+    var data=Object.assign({},existing,{
+      name:document.getElementById("gs-name").value.trim(),
+      subtitle:document.getElementById("gs-subtitle").value.trim(),
+      email:document.getElementById("gs-email").value.trim(),
+      linkedin:document.getElementById("gs-linkedin").value.trim(),
+      instagram:document.getElementById("gs-instagram").value.trim(),
+      desc:document.getElementById("gs-desc").value.trim(),
+      desc_en:document.getElementById("gs-desc-en").value.trim(),
+      about1:document.getElementById("gs-about1").value.trim(),
+      about1_en:document.getElementById("gs-about1-en").value.trim(),
+      about2:document.getElementById("gs-about2").value.trim(),
+      about2_en:document.getElementById("gs-about2-en").value.trim(),
+      contactHeading:document.getElementById("gs-contact-heading").value.trim(),
+      contactHeading_en:document.getElementById("gs-contact-heading-en").value.trim(),
+      contactDesc:document.getElementById("gs-contact-desc").value.trim(),
+      contactDesc_en:document.getElementById("gs-contact-desc-en").value.trim(),
+      footer:document.getElementById("gs-footer").value.trim()
+    });
+    var imgTasks=[
+      {id:"gs-contact-file",key:"contactPhoto"},
+      {id:"gs-float-file",key:"floatingLogo"},
+      {id:"gs-cv-file",key:"cvPdf"}
+    ];
+    var promises=imgTasks.map(function(t){
+      var file=document.getElementById(t.id).files[0];
+      if(!file)return Promise.resolve();
+      var upload=t.key==="cvPdf"?function(f){
+        return new Promise(function(res,rej){
+          var r=new FileReader();
+          r.onload=function(e){
+            var base64=e.target.result.split(",")[1];
+            var filename="uploads/"+Date.now()+"-cv.pdf";
+            ghGetFileSha(filename).then(function(sha){
+              var body={message:"Upload CV",content:base64,branch:GH_BRANCH};
+              if(sha)body.sha=sha;
+              return ghFetch("/contents/"+filename,"PUT",body);
+            }).then(function(r){if(r.content)res("/"+filename);else rej(r.message);}).catch(rej);
+          };
+          r.readAsDataURL(f);
+        });
+      }:uploadImageToGh;
+      return upload(file,"uploads").then(function(path){data[t.key]=path;});
+    });
+    return Promise.all(promises).then(function(){
+      return ghGetFileSha("_data/settings.json").then(function(sha){
+        return ghPutFile("_data/settings.json",JSON.stringify(data,null,2),sha);
+      });
+    });
+  }).then(function(r){
+    if(r&&r.content)ghStatus("gs-status",true,"Publie — visible dans 1-2 min");
+    else if(r)ghStatus("gs-status",false,"Erreur: "+(r.message||JSON.stringify(r)));
+  }).catch(function(e){ghStatus("gs-status",false,"Erreur: "+e);});
+}
+
+// ── FORMATION ──
+function ghEditProjectByIdx(idx){
+  var files=window._ghProjectFilesList;
+  if(!files||!files[idx])return;
+  var f=files[idx];
+  ghEditProject(f.path,f.sha);
+}
+function ghDeleteProjectByIdx(idx){
+  var files=window._ghProjectFilesList;
+  if(!files||!files[idx])return;
+  var f=files[idx];
+  if(!confirm("Supprimer ce projet ?"))return;
+  ghFetch("/contents/"+f.path,"DELETE",{message:"Delete "+f.path,sha:f.sha,branch:GH_BRANCH})
+  .then(function(){ghStatus("gp-status",true,"Supprime");ghLoadProjects();loadGithubData();})
+  .catch(function(){ghStatus("gp-status",false,"Erreur");});
+}
+function ghLoadFormations(){
+  ghFetch("/contents/_data/formations").then(function(files){
+    var list=document.getElementById("gha-formation-list");
+    var mdFiles=(files||[]).filter(function(f){return f.name.endsWith(".md");});
+    window._ghFormationMap={};
+    mdFiles.forEach(function(f){window._ghFormationMap[f.name]=f;});
+    if(!mdFiles.length){list.innerHTML="<li style='font-size:12px;color:var(--ink-faint)'>Aucune entree.</li>";return;}
+    window._ghFormationFilesList=mdFiles;
+    list.innerHTML=mdFiles.map(function(f,idx){
+      return "<li class='gha-list-item'><span>"+f.name.replace(".md","")+"</span><button class='btn-delete' onclick='ghDeleteFormationByIdx("+idx+")'>x</button></li>";
+    }).join("");
+  }).catch(function(){});
+}
+
+function ghDeleteFormationByIdx(idx){
+  var files=window._ghFormationFilesList;
+  if(!files||!files[idx])return;
+  var f=files[idx];
+  if(!confirm("Supprimer cette entree ?"))return;
+  ghFetch("/contents/"+f.path,"DELETE",{message:"Delete "+f.path,sha:f.sha,branch:GH_BRANCH})
+  .then(function(){ghStatus("gf-status",true,"Supprime");ghLoadFormations();loadGithubData();})
+  .catch(function(){ghStatus("gf-status",false,"Erreur");});
+}
+function ghSaveFormation(){
+  var year=document.getElementById("gf-year").value.trim();
+  var role=document.getElementById("gf-role").value.trim();
+  if(!year||!role){alert("Annee et intitule obligatoires");return;}
+  var md="---\nyear: "+JSON.stringify(year)+"\nrole: "+JSON.stringify(role)+"\n";
+  var place=document.getElementById("gf-place").value.trim();if(place)md+="place: "+JSON.stringify(place)+"\n";
+  var desc=document.getElementById("gf-desc").value.trim();if(desc)md+="desc: "+JSON.stringify(desc)+"\n";
+  var descEn=document.getElementById("gf-desc-en").value.trim();if(descEn)md+="desc_en: "+JSON.stringify(descEn)+"\n";
+  md+="---\n";
+  var filename="_data/formations/"+slugify(role)+".md";
+  ghGetFileSha(filename).then(function(sha){return ghPutFile(filename,md,sha);})
+  .then(function(r){
+    if(r.content){ghStatus("gf-status",true,"Publie");["gf-year","gf-role","gf-place","gf-desc","gf-desc-en"].forEach(function(id){document.getElementById(id).value="";});ghLoadFormations();}
+    else ghStatus("gf-status",false,"Erreur: "+(r.message||""));
+  }).catch(function(e){ghStatus("gf-status",false,"Erreur: "+e);});
+}
+
+function ghDeleteFormation(name){
+  var f=window._ghFormationMap&&window._ghFormationMap[name];
+  if(!f||!confirm("Supprimer "+name+" ?"))return;
+  ghFetch("/contents/"+f.path,"DELETE",{message:"Delete "+f.path,sha:f.sha,branch:GH_BRANCH})
+  .then(function(){ghStatus("gf-status",true,"Supprime");ghLoadFormations();loadGithubData();}).catch(function(){});
+}
+
+// ── SITE DATA LOADING ──
+function ghRawUrl(path){if(!path)return"";if(path.startsWith("http"))return path;return"https://raw.githubusercontent.com/"+GH_REPO+"/main"+path;}
+var SITE_BASE="/eleanorcortycapdeville";
+function siteUrl(path){if(!path)return"";if(path.startsWith("http"))return path;return SITE_BASE+path;}
+
+function applySettings(data){
+  if(!data)return;
+  if(data.name){document.getElementById("hero-name-display").textContent=data.name.toUpperCase();}
+  if(data.subtitle)document.getElementById("hero-subtitle").textContent=data.subtitle;
+  if(data.email){var el=document.getElementById("contact-email");el.textContent=data.email;el.href="mailto:"+data.email;}
+  if(data.footer)document.getElementById("footer-text").textContent=data.footer;
+  applyLangData(data,currentLang);
+  if(data.linkedin||data.instagram){renderSocialLinks(data.linkedin||"",data.instagram||"");}
+  if(data.contactPhoto){
+    var ci=document.getElementById("contact-photo-img");
+    var cp=document.getElementById("contact-photo-placeholder");
+    ci.src=ghRawUrl(data.contactPhoto);ci.style.display="block";if(cp)cp.style.display="none";
+  }
+  if(data.floatingLogo){
+    var fl=document.getElementById("floating-logo");
+    var flImg=document.getElementById("floating-logo-img");
+    if(fl&&flImg){flImg.src=ghRawUrl(data.floatingLogo);fl.style.display="flex";}
+  }
+  if(data.cvPdf){var btn=document.getElementById("cv-download-btn");btn.href=ghRawUrl(data.cvPdf);btn.style.display="inline-flex";}
+  if(data.cvDesc)document.getElementById("cv-desc").textContent=data.cvDesc;
+}
+
+function applyLangData(data,lang){
+  if(!data)return;
+  var isEn=lang==="en";
+  var desc=isEn?(data.desc_en||data.desc):data.desc;
+  var about1=isEn?(data.about1_en||data.about1):data.about1;
+  var about2=isEn?(data.about2_en||data.about2):data.about2;
+  var ch=isEn?(data.contactHeading_en||data.contactHeading):data.contactHeading;
+  var cd=isEn?(data.contactDesc_en||data.contactDesc):data.contactDesc;
+  if(desc)document.getElementById("hero-desc").textContent=desc;
+  if(about1)document.getElementById("about-text-1").textContent=about1;
+  if(about2)document.getElementById("about-text-2").textContent=about2;
+  if(ch)document.getElementById("contact-sub").textContent=ch;
+  if(cd)document.getElementById("contact-desc").textContent=cd;
+}
+
+function renderSocialLinks(li,ig){
+  var liH=li?'<a href="'+li+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>':"";
+  var igH=ig?'<a href="'+ig+'" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>':"";
+  var html=liH+igH;
+  document.getElementById("contact-social-links").innerHTML=html;
+  document.getElementById("footer-social-links").innerHTML=html;
+  var liIcon=li?'<a href="'+li+'" target="_blank" rel="noopener" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>':"";
+  var igIcon=ig?'<a href="'+ig+'" target="_blank" rel="noopener" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>':"";
+  var navSocial=document.getElementById("nav-social-links");
+  if(navSocial)navSocial.innerHTML=liIcon+igIcon;
+}
+
+var _siteData={};
+function loadGithubData(){
+  fetch("https://raw.githubusercontent.com/"+GH_REPO+"/main/_data/settings.json?t="+Date.now())
+  .then(function(r){return r.ok?r.json():{};}).catch(function(){return{};})
+  .then(function(data){_siteData=data||{};applySettings(_siteData);});
+
+  fetch("https://api.github.com/repos/"+GH_REPO+"/contents/_data/projects")
+  .then(function(r){return r.ok?r.json():[];})
+  .then(function(files){
+    var mdFiles=(files||[]).filter(function(f){return f.name.endsWith(".md");});
+    if(!mdFiles.length)return;
+    return Promise.all(mdFiles.map(function(f){return fetch(f.download_url).then(function(r){return r.text();}).then(window.parseFrontmatter);}));
+  }).then(function(data){
+    if(!data||!data.length)return;
+    data.forEach(function(p){if(p.img&&!p.img.startsWith("http"))p.img=ghRawUrl(p.img);if(p.gallery&&Array.isArray(p.gallery))p.gallery=p.gallery.map(function(g){return g&&!g.startsWith("http")?ghRawUrl(g):g;});});
+    projects=data;renderProjects();
+  }).catch(function(){});
+
+  fetch("https://api.github.com/repos/"+GH_REPO+"/contents/_data/formations")
+  .then(function(r){return r.ok?r.json():[];})
+  .then(function(files){
+    var mdFiles=(files||[]).filter(function(f){return f.name.endsWith(".md");});
+    if(!mdFiles.length)return;
+    return Promise.all(mdFiles.map(function(f){return fetch(f.download_url).then(function(r){return r.text();}).then(window.parseFrontmatter);}));
+  }).then(function(data){if(data&&data.length){formations=data;renderTimeline();}}).catch(function(){});
+}
+
+// ── RENDER ──
+function projectMatchesCat(p,cat){
+  if(cat==="all")return true;
+  if(Array.isArray(p.cat))return p.cat.indexOf(cat)!==-1;
+  return p.cat===cat;
+}
+
+function renderProjects(){
+  var grid=document.getElementById("projects-grid");
+  var filtered=currentFilter==="all"?projects:projects.filter(function(p){return projectMatchesCat(p,currentFilter);});
+  if(!filtered.length){grid.innerHTML="<div class='no-projects'>Aucun projet.</div>";return;}
+  grid.innerHTML=filtered.map(function(p,i){
+    var idx=projects.indexOf(p);
+    var catLabel=Array.isArray(p.cat)?p.cat.map(function(c){return CATS[c]||c;}).join(", "):(CATS[p.cat]||p.cat||"");
+    var img=p.img?"<img src='"+p.img+"' alt='"+p.title+"' loading='lazy'>":"<div class='project-card-placeholder'>"+catLabel+"</div>";
+    return "<div class='project-card' onclick='openModal("+idx+")'>"+ img+"<div class='project-card-info'><p class='project-card-cat'>"+catLabel+"</p><p class='project-card-title'>"+p.title+"</p></div></div>";
+  }).join("");
+}
+
+function renderTimeline(){
+  var list=document.getElementById("timeline-list");
+  if(!list)return;
+  var lang=currentLang;
+  if(!formations.length){list.innerHTML="<p class='timeline-empty'>Aucune entree.</p>";return;}
+  list.innerHTML=formations.map(function(f){
+    var desc=(lang==="en"&&f.desc_en)?f.desc_en:f.desc;
+    return "<div class='timeline-item'><p class='timeline-year'>"+f.year+"</p><p class='timeline-role'>"+f.role+"</p>"+(f.place?"<p class='timeline-place'>"+f.place+"</p>":"")+((desc)?"<p class='timeline-desc'>"+desc+"</p>":"")+"</div>";
+  }).join("");
+}
+
+function filterCat(cat,btn){
+  currentFilter=cat;
+  document.querySelectorAll(".cat-btn").forEach(function(b){b.classList.remove("active");});
+  btn.classList.add("active");renderProjects();
+}
+function scrollToWork(cat){
+  document.getElementById("work").scrollIntoView({behavior:"smooth"});
+  setTimeout(function(){var btn=document.querySelector(".cat-btn[data-cat='"+cat+"']");if(btn)filterCat(cat,btn);},600);
+}
+
+function openModal(i){
+  var p=projects[i];
+  var catLabel=Array.isArray(p.cat)?p.cat.map(function(c){return CATS[c]||c;}).join(", "):(CATS[p.cat]||p.cat||"");
+  document.getElementById("modal-cat").textContent=catLabel;
+  document.getElementById("modal-title").textContent=p.title;
+  var dateStr=[p.role,p.date||p.year].filter(Boolean).join(" — ");
+  document.getElementById("modal-year").textContent=dateStr;
+  var desc=(currentLang==="en"&&p.desc_en)?p.desc_en:p.desc;
+  document.getElementById("modal-desc").textContent=desc||"";
+  var galEl=document.getElementById("modal-gallery");
+  if(p.gallery&&p.gallery.length){galEl.innerHTML=p.gallery.map(function(g){return'<img src="'+g+'" loading="lazy" onclick="window.open(this.src)">';}).join("");galEl.style.display="flex";}
+  else{galEl.innerHTML="";galEl.style.display="none";}
+  var ytBtn=document.getElementById("modal-yt-btn");
+  if(p.yt){ytBtn.href=p.yt;ytBtn.style.display="inline-flex";}else{ytBtn.style.display="none";}
+  document.getElementById("modal-img-wrap").innerHTML=p.img?"<img class='modal-img' src='"+p.img+"' alt='"+p.title+"'>":"<div class='modal-img-placeholder'>No image</div>";
+  document.getElementById("modal-overlay").classList.add("open");document.body.style.overflow="hidden";
+}
+function closeModal(e){if(e.target===document.getElementById("modal-overlay"))closeModalBtn();}
+function closeModalBtn(){document.getElementById("modal-overlay").classList.remove("open");document.body.style.overflow="";}
+
+// ── LANGUAGE ──
+function setLang(lang){
+  currentLang=lang;localStorage.setItem("pf_lang",lang);
+  document.getElementById("btn-fr").classList.toggle("active",lang==="fr");
+  document.getElementById("btn-en").classList.toggle("active",lang==="en");
+  document.querySelectorAll("[data-fr]").forEach(function(el){
+    var val=el.getAttribute("data-"+lang);if(!val)return;
+    var em=el.querySelector("em");
+    if(em){el.childNodes[0].textContent=val;var sub=el.getAttribute("data-"+lang+"-sub");if(sub)em.textContent=sub;}
+    else el.textContent=val;
+  });
+  document.querySelector(".work-title").childNodes[0].textContent=lang==="fr"?"Projets":"Projects";
+  var ws=document.getElementById("work-sub");if(ws)ws.textContent=lang==="fr"?"mes travaux":"my work";
+  applyLangData(_siteData,lang);
+  renderTimeline();
+}
+
+// ── REVEAL ──
+var observer=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add("visible");});},{threshold:0.1});
+document.querySelectorAll(".reveal").forEach(function(el){observer.observe(el);});
+
+// ── INIT ──
+document.addEventListener("keydown",function(e){if(e.shiftKey&&e.ctrlKey&&e.key==="A")openGhAdmin();});
+setLang(currentLang);
+loadGithubData();
+</script>
+</body>
+</html>
