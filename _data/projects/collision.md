@@ -1,6 +1,8 @@
 ---
 title: "Collision"
-cat: scripte
+cat:
+  - hmc
+  - scripte
 year: "2025"
 date: "Décembre 2025"
 date_en: "December 2025"
