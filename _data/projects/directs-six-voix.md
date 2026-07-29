@@ -13,5 +13,5 @@ gallery:
   - /uploads/1785347024162-9rw32v.jpg
   - /uploads/1785347025564-ex4txi.jpg
   - /uploads/1785347026951-fzcsr8.jpg
-yt: https://www.youtube.com/watch?v=EO7c3X0ycEs&list=PL3e0ujyV1sqiY5Sk2FBNzcmhDXjl__o7j
+yt: https://www.youtube.com/watch?v=EO7c3X0ycEs&list=PL3e0ujyV1sqiY5Sk2FBNzcmhDXjl__o7j&pp=sAgC
 ---
