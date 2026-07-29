@@ -14,5 +14,4 @@ gallery:
   - /uploads/1785280151954-k05gv7.jpg
   - /uploads/1785280153379-rsv2hn.jpg
   - /uploads/1785280155717-7k1fly.jpg
-yt: https://www.youtube.com/watch?v=1_fbA5A6kqQ
 ---
