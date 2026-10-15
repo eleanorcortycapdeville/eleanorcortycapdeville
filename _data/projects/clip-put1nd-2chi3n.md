@@ -8,10 +8,9 @@ role: "Assistante décoratrice"
 role_en: "Assistant set decorator"
 desc: "J'ai eu l'opportunité d'être assistante déco sur le clip de Moana, qui se déroule à l'arrière d'une camionnette. Comme l'équipement de l'équipe technique restait visible à l'image, il nous a été demandé de partir sur une esthétique riche en câbles, télévisions et pièces électroniques. J'ai ainsi pu récupérer gratuitement des objets et pièces électroniques, notamment pour réaliser le logo de Moana entièrement en composants électroniques."
 desc_en: "I had the opportunity to work as assistant set decorator on Moana's music video, set in the back of a van. Since the crew's technical equipment remained visible on camera, we were asked to lean into an aesthetic built around cables, televisions and electronic components. This gave me the chance to source electronic objects and parts for free, notably to build Moana's logo entirely out of electronic components."
-img: /uploads/1785280146838-zsstbv.jpg
+img: /uploads/1792077937180-15va8n.jpg
 gallery:
-  - /uploads/1785280149374-a5s4kl.jpg
-  - /uploads/1785280151954-k05gv7.jpg
-  - /uploads/1785280153379-rsv2hn.jpg
-  - /uploads/1785280155717-7k1fly.jpg
+  - /uploads/1792077938785-6108v9.jpg
+  - /uploads/1792077940569-bpg6t5.jpg
+  - /uploads/1792077942411-lkyqv7.jpg
 ---
