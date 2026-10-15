@@ -12,13 +12,10 @@ desc: "J’ai eu l’occasion d’être cheffe déco et également co-accessoiri
 desc_en: "I had the opportunity to work as set decorator and co-props master on a short film by Jérémy Mavré. The story is set in the 1950s: an occult detective investigates a case and is in for more surprises than he expected, which made recreating a period living room a real challenge. The story takes place in two worlds: the world of the living, with a messy apartment bearing signs of the deceased’s struggle, and the world of the dead, where the apartment is pristine. We therefore had to create these two atmospheres and pay close attention to every detail to bring the story to life."
 img: /uploads/1792072876280-kvtm11.jpg
 gallery:
-  - /uploads/1792069261644-zm239y.jpg
-  - /uploads/1792069263620-mbekh1.jpg
-  - /uploads/1792069265362-ukaywd.jpg
-  - /uploads/1792072878133-u64wq9.jpg
-  - /uploads/1792072880263-lkeiqk.jpg
-  - /uploads/1792072882571-8n9f6k.jpg
-  - /uploads/1792072884603-vivdiu.jpg
-  - /uploads/1792072887544-mos4ny.jpg
+  - /uploads/1792072937617-3yoe6x.jpg
+  - /uploads/1792072939455-ajscgs.jpg
+  - /uploads/1792072941163-d6m6ho.jpg
+  - /uploads/1792072943074-pdxsf4.jpg
+  - /uploads/1792072944890-8tkvld.jpg
 yt: https://youtu.be/l7-MZCTILEw
 ---
