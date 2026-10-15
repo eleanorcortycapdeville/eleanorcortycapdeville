@@ -13,4 +13,5 @@ gallery:
   - /uploads/1792077119173-4umogb.jpg
   - /uploads/1792077121971-em1o7e.jpg
   - /uploads/1792077123908-6seb7p.jpg
+yt: https://youtu.be/evNBbQLnW6o
 ---
